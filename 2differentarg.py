@@ -19,63 +19,63 @@ def options(arg):
     else:
         count_dict = {}
         for i in arg:
-            temp = {i: arg.count(i)}
-            count_dict.update(temp)
+            temp_dict = {i: arg.count(i)}
+            count_dict.update(temp_dict)
         return count_dict
 
 
 while True:
-    choice = 0
-    print('''Выберите структуру данных для работы:
-    1. Список
-    2. Словарь
-    3. Целочисленное число
-    4. Строка
-    ''')
-    try:
-        choice = int(input(">>"))
-        break
-    except:
-        print("Некорректный ввод")
-
-value = 0
-if choice == 1:
-    value = list(map(int, input("Введите список ").split()))
-elif choice == 2:
-    value = {}
-    size = int(input("Введите длинну словаря"))
-    for number in range(size):
-        key_val = input("Введите ключ ")
-        val = input("Введите значение ")
-        temp = {key_val: val}
-        value.update(temp)
-elif choice == 3:
     while True:
+        choice = 0
+        print('''Выберите структуру данных для работы:
+        1. Список
+        2. Словарь
+        3. Целочисленное число
+        4. Строка
+        ''')
         try:
-            value = int(input("Введите целое число "))
+            choice = int(input(">>"))
             break
         except:
-            print("Некорректный ввод целочисленного числа")
-elif choice == 4:
-    value = input("Введите строку ")
-else:
-    print("Некорректный пункт меню")
+            print("Некорректный ввод")
 
-res = options(value)
+    value = 0
+    if choice == 1:
+        while True:
+            try:
+                value = list(map(int, input("Введите список ").split()))
+            except:
+                print("Некорректный ввод")
+    elif choice == 2:
+        value = {}
+        size = int(input("Введите длинну словаря"))
+        for number in range(size):
+            key_val = input("Введите ключ ")
+            val = input("Введите значение ")
+            temp = {key_val: val}
+            value.update(temp)
+    elif choice == 3:
+        while True:
+            try:
+                value = int(input("Введите целое число "))
+                break
+            except:
+                print("Некорректный ввод целочисленного числа")
+    elif choice == 4:
+        value = input("Введите строку ")
+    else:
+        print("Некорректный пункт меню")
 
-if choice == 1:
-    print('Максимальный элемент', res[0])
-    print('Количество четных', res[1])
-    print('Список без отрицательных', *res[2])
-elif choice == 2:
-    print('Отсортированный словарь', res)
-elif choice == 3:
-    print('Перевернутое число', res)
-elif choice == 4:
-    print('Количество вхождений каждого символа', res)
+    res = options(value)
 
-# value = int(input())
-# value = list(map(int, input().split()))
-# value = input()
-# value = {'q': 2, 'e': 1}
-# print(options(value))
+    if choice == 1:
+        print('Максимальный элемент', res[0])
+        print('Количество четных', res[1])
+        print('Список без отрицательных', *res[2])
+    elif choice == 2:
+        print('Отсортированный словарь', res)
+    elif choice == 3:
+        print('Перевернутое число', res)
+    elif choice == 4:
+        print('Количество вхождений каждого символа', res)
+
