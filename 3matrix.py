@@ -20,7 +20,7 @@ while True:
         columns = int(input("Введите кол-во столбцов "))
         matrix = matrix_input(rows, columns)
         break
-    except TypeError:
+    except ValueError:
         print("Ошибка. Введите целое число")
 
 matrix_print(matrix)
@@ -33,6 +33,7 @@ for j in range(columns):
     for i in range(rows):
         if matrix[i][j] >= 0:
             fl = 0
+            continue
     if fl:
         for i in range(rows):
             sum_columns += matrix[i][j]
