@@ -36,7 +36,7 @@ while True:
         try:
             choice = int(input(">>"))
             break
-        except:
+        except ValueError:
             print("Некорректный ввод")
 
     value = 0
@@ -44,11 +44,17 @@ while True:
         while True:
             try:
                 value = list(map(int, input("Введите список ").split()))
-            except:
+                break
+            except ValueError:
                 print("Некорректный ввод")
     elif choice == 2:
         value = {}
-        size = int(input("Введите длинну словаря"))
+        while True:
+            try:
+                size = int(input("Введите длинну словаря"))
+                break
+            except ValueError:
+                print("Ошибка. Введите целое число")
         for number in range(size):
             key_val = input("Введите ключ ")
             val = input("Введите значение ")
@@ -59,7 +65,7 @@ while True:
             try:
                 value = int(input("Введите целое число "))
                 break
-            except:
+            except ValueError:
                 print("Некорректный ввод целочисленного числа")
     elif choice == 4:
         value = input("Введите строку ")
@@ -78,4 +84,3 @@ while True:
         print('Перевернутое число', res)
     elif choice == 4:
         print('Количество вхождений каждого символа', res)
-

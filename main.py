@@ -19,5 +19,5 @@ while True:
         number = int(input("Введите номер простого числа "))
         print(prime(number))
         break
-    except:
+    except ValueError:
         print("Hекорректный ввод")
